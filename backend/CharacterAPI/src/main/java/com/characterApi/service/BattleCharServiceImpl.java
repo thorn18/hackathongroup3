@@ -49,7 +49,7 @@ public class BattleCharServiceImpl implements BattleCharService {
 	public void updateBattleCharacter(BattleCharacter battleCharacter) {
 		
 		BattleCharacter originalCharacter = battleCharDao.findBattleCharacterById(battleCharacter.getId());
-		
+		System.out.println(battleCharacter);
 		battleCharDao.save(battleCharacter);
 	}
 
