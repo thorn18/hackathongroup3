@@ -1,7 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { useHistory } from "react-router";
 import { Character } from "../character/character";
-import InputRange from "react-input-range";
 import axios from 'axios';
 
 export default function CreateCharacterComponent() {
@@ -10,6 +9,7 @@ export default function CreateCharacterComponent() {
     // let remain = 100;
     let [char, setchar] = useState(new Character());
     let [remain, setremain] = useState(100);
+    const URI = 'http://localhost:8080/api/character/';
 
     function handleInput(e: SyntheticEvent) {
         let c: any = { ...char };
@@ -106,39 +106,46 @@ export default function CreateCharacterComponent() {
     }
 
     function HandleSubmit(e: SyntheticEvent) {
+        axios.post(URI,char).then((value) => {
+            if(value) {
+                console.log("Sucessful creation");
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     return (
         <div id="HomeDiv">
             <div id="CreateCharacterForm">
-                <label>Name: </label><br></br>
+                <label className = "label">Name: </label><br></br>
                 <input type="text" id="name" name="name" onChange={handleInput} />
                 <br></br>
-                <label>Strength: </label>
+                <label className = "label">Strength: </label>
                 <button onClick={handleStrengthClickUp}>^</button>
                 <label>{char.strength}</label>
                 <button onClick={handleStrengthClickDown}>v</button>
                 <br></br>
-                <label>Life: </label>
+                <label className = "label">Life: </label>
                 <button onClick={handleLifeClickUp}>^</button>
                 <label>{char.life}</label>
                 <button onClick={handleLifeClickDown}>v</button>
                 <br></br>
-                <label>Dex: </label>
+                <label className = "label">Dex: </label>
                 <button onClick={handleDexClickUp}>^</button>
                 <label>{char.dex}</label>
                 <button onClick={handleDexClickDown}>v</button>
                 <br></br>
-                <label>Speed: </label>
+                <label className = "label">Speed: </label>
                 <button onClick={handleSpeedClickUp}>^</button>
                 <label>{char.speed}</label>
                 <button onClick={handleSpeedClickDown}>v</button>
                 <br></br>
-                <label>Character URL: </label><br></br>
+                <label className = "label">Character URL: </label><br></br>
                 <input type="text" id="image" name="image" />
                 <br></br>
             </div>
-            <button onClick={HandleSubmit}>Submit Form</button>
+            <button id = "characterSubmitButton" onClick={HandleSubmit}>Submit Form</button>
         </div>
     )
 }

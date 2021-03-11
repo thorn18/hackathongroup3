@@ -17,7 +17,7 @@ export default function RouterComponent() {
                 <p className='hero'>Be Very Afraid</p>
             </header>
             <div id = "buttondiv">
-                <button onClick={() => { history.push('./CreateNewCharacter') }} id="createCharButton"> Create A new Character
+                <button onClick={() => { history.push('./CreateNewCharacter') }} id="createCharButton"> Create A New Character
                 </button>
                 <button onClick={() => { history.push('./BattlePage') }} id="battlePageButton"> Battle!
                 </button>

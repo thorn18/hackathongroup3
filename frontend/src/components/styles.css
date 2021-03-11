@@ -41,7 +41,19 @@
     border-radius: 5px;
     height: 800px;
     background-color: whitesmoke;
+    margin: auto;
+    text-align: center;
 }
 #CreateCharacterForm {
-
+    text-align: center;
+}
+#characterSubmitButton {
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+}
+.label {
+    font-size: 30px;
+    padding: 10px;
+    font-family: cursive;
 }
