@@ -12,20 +12,19 @@ export default function CreateCharacterComponent() {
     const URI = 'http://localhost:9018/api/character/';
 
     function handleInput(e: SyntheticEvent) {
-        let c: any = { ...char };
-        c[
-            (e.target as HTMLInputElement).name
-        ] = (e.target as HTMLInputElement).value;
-        char = (c);
+        let x: string =(e.target as HTMLInputElement).value;
+        let c: any = { ...char }
+        c.charName = x;
+        setchar(c);
     }
 
     function handleStrengthClickUp(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 0 || c.strength == 100) {
+        if (remain == 0 || c.charStrength == 100) {
 
         } else {
-            c.strength += 1;
+            c.charStrength += 1;
             setchar(c);
             setremain(remain - 1);
         }
@@ -33,9 +32,9 @@ export default function CreateCharacterComponent() {
     function handleStrengthClickDown(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 100 || c.strength == 0) {
+        if (remain == 100 || c.charStrength == 0) {
         } else {
-            c.strength -= 1;
+            c.charStrength -= 1;
             setchar(c);
             setremain(remain + 1);
         }
@@ -44,9 +43,9 @@ export default function CreateCharacterComponent() {
     function handleLifeClickUp(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 0 || c.life == 100) {
+        if (remain == 0 || c.charHp == 100) {
         } else {
-            c.life += 1;
+            c.charHp += 1;
             setchar(c);
             setremain(remain - 1);
         }
@@ -54,9 +53,9 @@ export default function CreateCharacterComponent() {
     function handleLifeClickDown(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 100 || c.life == 0) {
+        if (remain == 100 || c.charHp == 0) {
         } else {
-            c.life -= 1;
+            c.charHp -= 1;
             setchar(c);
             setremain(remain + 1);
         }
@@ -66,9 +65,9 @@ export default function CreateCharacterComponent() {
     function handleDexClickUp(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 0 || c.dex == 100) {
+        if (remain == 0 || c.charDex == 100) {
         } else {
-            c.dex += 1;
+            c.charDex += 1;
             setchar(c);
             setremain(remain - 1);
         }
@@ -76,9 +75,9 @@ export default function CreateCharacterComponent() {
     function handleDexClickDown(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 100 || c.dex == 0) {
+        if (remain == 100 || c.charDex == 0) {
         } else {
-            c.dex -= 1;
+            c.charDex -= 1;
             setchar(c);
             setremain(remain + 1);
         }
@@ -87,9 +86,9 @@ export default function CreateCharacterComponent() {
     function handleSpeedClickUp(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 0|| c.speed == 100) {
+        if (remain == 0 || c.charSpeed == 100) {
         } else {
-            c.speed += 1;
+            c.charSpeed += 1;
             setchar(c);
             setremain(remain - 1);
         }
@@ -97,17 +96,17 @@ export default function CreateCharacterComponent() {
     function handleSpeedClickDown(e: SyntheticEvent) {
         let x: number = parseInt((e.target as HTMLInputElement).value);
         let c: any = { ...char }
-        if (remain == 100 || c.speed == 0) {
+        if (remain == 100 || c.charSpeed == 0) {
         } else {
-            c.speed -= 1;
+            c.charSpeed -= 1;
             setchar(c);
             setremain(remain + 1);
         }
     }
 
     function HandleSubmit(e: SyntheticEvent) {
-        axios.post(URI,char).then((value) => {
-            if(value) {
+        axios.post(URI, char).then((value) => {
+            if (value) {
                 console.log("Sucessful creation");
             }
         }).catch((error) => {
@@ -117,35 +116,37 @@ export default function CreateCharacterComponent() {
 
     return (
         <div id="HomeDiv">
+            <label className="label">Undistributed Points:{remain} </label><br></br>
+
             <div id="CreateCharacterForm">
-                <label className = "label">Name: </label><br></br>
+                <label className="label">Name: </label><br></br>
                 <input type="text" id="name" name="name" onChange={handleInput} />
                 <br></br>
-                <label className = "label">Strength: </label>
+                <label className="label">Strength: </label>
                 <button onClick={handleStrengthClickUp}>^</button>
-                <label>{char.strength}</label>
+                <label>{char.charStrength}</label>
                 <button onClick={handleStrengthClickDown}>v</button>
                 <br></br>
-                <label className = "label">Life: </label>
+                <label className="label">Life: </label>
                 <button onClick={handleLifeClickUp}>^</button>
-                <label>{char.life}</label>
+                <label>{char.charHp}</label>
                 <button onClick={handleLifeClickDown}>v</button>
                 <br></br>
-                <label className = "label">Dex: </label>
+                <label className="label">Dex: </label>
                 <button onClick={handleDexClickUp}>^</button>
-                <label>{char.dex}</label>
+                <label>{char.charDex}</label>
                 <button onClick={handleDexClickDown}>v</button>
                 <br></br>
-                <label className = "label">Speed: </label>
+                {/* <label className="label">Speed: </label>
                 <button onClick={handleSpeedClickUp}>^</button>
-                <label>{char.speed}</label>
+                <label>{char.charSpeed}</label>
                 <button onClick={handleSpeedClickDown}>v</button>
-                <br></br>
-                <label className = "label">Character URL: </label><br></br>
+                <br></br> */}
+                <label className="label">Character URL: </label><br></br>
                 <input type="text" id="image" name="image" />
                 <br></br>
             </div>
-            <button id = "characterSubmitButton" onClick={HandleSubmit}>Submit Form</button>
+            <button id="characterSubmitButton" onClick={HandleSubmit}>Submit Form</button>
         </div>
     )
 }
