@@ -9,7 +9,7 @@ export default function CreateCharacterComponent() {
     // let remain = 100;
     let [char, setchar] = useState(new Character());
     let [remain, setremain] = useState(100);
-    const URI = 'http://localhost:8080/api/character/';
+    const URI = 'http://localhost:9018/api/character/';
 
     function handleInput(e: SyntheticEvent) {
         let c: any = { ...char };
