@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-export default function RouterComponent() {
-    const dispatch = useDispatch();
-    const location = useLocation();
+export default function BattlePageComponent() {
+    // const dispatch = useDispatch();
+    // const location = useLocation();
     return (
-        <div>
+        <div id = "HomeDiv">
             <p>Battle Page</p>
         </div>
     )
