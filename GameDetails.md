@@ -28,6 +28,7 @@ Battle System (tournament style):
 Storage:
 1. User Information (local storage)
 2. Log of game results.
+3. H2
 
 
 Front-end: React
