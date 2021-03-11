@@ -1,6 +1,13 @@
-{}  
+import { createStore, Store } from 'redux';
+import {Character} from '../character/character.js';
 
+export interface CharacterState {
+    characters:Character[],
+    character:Character
+}
 
-const store " ,e> = createSToretore()reducer;
+export interface AppState extends CharacterState{};
 
-export default store;
+//const store: Store<AppState> = createStore(reducer);
+
+//export default store;
