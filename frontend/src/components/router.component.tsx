@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import BattlePageComponent from './battlePage.component';
 import CreateCharacterComponent from './createCharacter.component';
-import HomeComponent from './homeComponent';
 import './styles.css'
 import logo from './gameLogo.png'
 
@@ -31,11 +30,6 @@ export default function RouterComponent() {
                 exact
                 path='/CreateNewCharacter'
                 component={CreateCharacterComponent}
-            />
-            <Route
-                exact
-                path='/Home'
-                component={HomeComponent}
             />
         </div>
     );

@@ -36,5 +36,9 @@
     background-color: black;
 }
 #HomeDiv {
+    border-style: inset;
+    border-color: black;
+    border-radius: 5px;
+    height: 800px;
     background-color: whitesmoke;
 }
