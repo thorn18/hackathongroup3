@@ -1,0 +1,40 @@
+#createCharButton {
+    width: 250px;
+    height: 80px;
+    border: 2px;
+    border-style: inset;
+    border-color: aquamarine;
+    font-size: large;
+    text-align: center;
+
+}
+#battlePageButton {
+    width: 250px;
+    height: 80px;
+    border: 2px;
+    border-style: inset;
+    border-color: aquamarine;
+    font-size: large;
+    text-align: center;
+}
+#buttondiv {
+    margin: auto;
+    width: fit-content;
+    border: 3px;
+    border-color: black;
+    border-radius: 8px;
+    border-style: inset;
+    text-align: center;
+    background-color: aquamarine;
+}
+#header {
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}
+#routerComponentDiv {
+    background-color: black;
+}
+#HomeDiv {
+    background-color: whitesmoke;
+}

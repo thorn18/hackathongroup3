@@ -7,11 +7,7 @@ export default function HomeComponent() {
     // const location = useLocation();
     const history = useHistory();
     return (
-        <div>
-            <button onClick={() => { history.push('./CreateNewCharacter') }}> Create A new Character
-                </button>
-            <button onClick={() => { history.push('./BattlePage') }}> Battle!
-                </button>
+        <div id = "HomeDiv">
         </div>
     )
 }

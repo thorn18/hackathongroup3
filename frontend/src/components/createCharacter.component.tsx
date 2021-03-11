@@ -16,7 +16,7 @@ export default function CreateCharacterComponent(){
     // }
 
     return (
-        <div>
+        <div id = "HomeDiv">
             <form>
                 {/* <label for="name">Name: </label><br></br> */}
                 <input type="text" id="name" name="name"/>

@@ -5,7 +5,7 @@ export default function BattlePageComponent() {
     // const dispatch = useDispatch();
     // const location = useLocation();
     return (
-        <div>
+        <div id = "HomeDiv">
             <p>Battle Page</p>
         </div>
     )
