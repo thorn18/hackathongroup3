@@ -1,5 +1,4 @@
-import { Link, Route, useHistory, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { Route, useHistory } from 'react-router-dom';
 import React from 'react';
 import BattlePageComponent from './battlePage.component';
 import CreateCharacterComponent from './createCharacter.component';
